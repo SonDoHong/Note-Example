@@ -1,0 +1,5 @@
+chưa hiểu:
+ + link css, js.
+ + layout: sao có thể dùng component element mà
+	trong khi đó không có file.
+ + file mix kia đang ko sử dụng

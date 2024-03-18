@@ -1,0 +1,29 @@
+### middleware
+xử lý có cho chạy hay không
+VD: kiểm tra chưa login thì thì trả về home page, login rồi thì cho phép vào trang đạt yêu cầu.
+
+
+### View
+là phần hiển thị ra giao diện.
+có phương thức: view('page', $data)
+
+VD-1:
+public function index() {
+	$title = 'tieu de';
+	$content = 'noi dung';
+	
+	$dataView = [
+		'titleData' => $title;
+		'contentData' => $content;
+	]
+
+	return view('page', $dataView);
+}
+
+VD-2:
+public function index() {
+	$title = 'tieu de';
+	$content = 'noi dung';
+
+	return view('page', compact('title', 'content'));
+}

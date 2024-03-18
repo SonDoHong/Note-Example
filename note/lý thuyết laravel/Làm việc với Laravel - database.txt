@@ -1,0 +1,67 @@
+# request lifecycle laravel: (yêu cầu vòng đời laravel)
+	--(1)-> CLIENT --request--> public/index.php ---> App/Http/Kernel.php ---->
+	
+	---> service providers ---> Register Service providers ---> Bootstrap Service providers -->
+	
+	---> Router ---> middleware ---> Controller/Action ---> View -----> Client. --(1)->
+		'-------------------------------^ |				^
+						  '-----------------------------'
+
+
+1. Cài đặt công cụ
+- PHPStorm
+- Subline Text
+- VS Code (Visual Studio Code)
+
+2. Cài đặt môi trường
+- Xampp
+- Ampps
+- Wamps
+
+Webserver: Apache, Nginx, IIS
+PHP
+MySQL
+
+3. Muốn làm việc với laravel thì phải cài php & composer
+
+4. Những câu lệnh: link(https://laravel.com/docs/10.x#creating-a-laravel-project)
++ composer create-project laravel/laravel example-app // tạo 1 dự án
++ php artisan make:generate // tạo Application (tạo key)
++ php artisan down // bật chế độ bảo trì
++ cd example-app
++ php -S localhost:1234 // path tự chọn và dãy số có thể tự đặt
++ php artisan serve // path cố định
++ php artisan make:controller NameController // create 1 tệp trong file Controllers
++ php artisan make:migration create_(name)s_table // create 1 tệp file migrations (lưu ý đặt name có chữ "s" ở cuối
++ php artisan migrate // cập nhật CSDL
++ php artisan make:model Product // tạo 1 tệp trong file model
+
+#file
+* migrations (cấu hình kết nối với DB)
+- tạo Cơ Sở Dữ Liệu (database + file migrations)
++ tạo new file trên phpMyAdmin
++ chỉnh sửa db trong tệp .env
++ sử dụng câu lệnh:
+	php artisan make:migration create_names_table // tạo 1 tệp ở file migration
+	php artisan migrate // cập nhật file lên CSDL (db)
+
+* Models
+- tạo tệp trong file Models bằng câu lệnh:
+	Vd: php artisan make:model Product
+(Nguyên tắc: model Product = table products
+
+
+
+
+
+
+
+
+
+
+# Ổn lại thứ tự làm việc ngày 6/12/2023 5:00pm
+controller: viết hàm
+web.php > routing
+mihration: định nghĩa bảng
+view: thiết kế giao diện
+

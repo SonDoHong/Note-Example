@@ -1,0 +1,68 @@
+** Blade Template là gì?
+* LƯU Ý: TẤT CẢ VÍ DỤ NẰM Ở FILE LARAVEL BASIC
+- Blade là một Template Engine đơn giản nhưng mạnh mẽ được cung cấp bởi laravel.
+- Blade không giới hạn bạn trong việc sử dụng mã PHP đơn giản trong View.
+- Tất cả các Blade View sẽ được biên dịch thành mã PHP vè được lưu vào bộ đệm cho đến khi chúng được sử đổi.
+- Các file Blade View có phần mở rộng là .Blade.php và lưu trong thư mục resources/views.
+
+
+** Hiển thị dữ liệu:
+ + Cú pháp 1: {{$variable}}: hiển thị dữ liệu dạng thực thể.
+ + Cú pháp 2: {!! $variable !!}: Hiển thị dữ liệu có biên dịch mã HTML.
+
+LƯU Ý: Cú pháp hiển thị này có thể áp dụng toán tử 3 ngôi.
+
+* VD: (code ở laravel basic) - view('home')
+
+## Vòng lặp
+* VD: trong phần view('home')
+
++ Vòng lặp for:
++ Vòng lặp while:
++ Vòng lặp foreach:
++ Vòng lặp forelse:
+	- Vòng lặ này chính là phiên bản nâng cấp của foreach 
+	  và có kiểm tra điều kiện nếu mảng trống
+
+## Câu lệnh rẽ nhánh
+* VD: trong phần view('home')
+
++ Câu lệnh if:
++ Câu lệnh if else:
++ Câu lệnh if..elseif:
++ Câu lênh switch...case:
+	
+LƯU Ý: mã @break || @continue đều sử dụng được ở các câu lệnh rẽ nhánh
+
+## Viết mã PHP
+VD: file basic
+
+## Blade & Javascript Framework
+- Hiện nay có rất nhiều Javascript Framework sử dụng ký hiệu {{}} để
+render dữ liệu. Nếu bạn không muốn Blade biên dịch dữ liệu, bạn chỉ
+cần ký tự @ phía trước.
++ VD: @{{name}}
+
+- Nếu không muốn Blade biên dịch nhiều dòng có thể sủ dụng @verbatim
++ VD: @verbatim
+	<div class='container'>
+		Hello, {{name}}
+	</div>
+@endverbatim
+
+## Include View
+- Nghĩa: hiểu 1 cách đơn giản là tách View thành nhiều parts khác nhau
+(có nghĩa chia thành nhiều file nhỏ)
++ VD: @include('path') // path chỉ tới 1 view
+
+
+## Master Layout và kế thừa Master Layout
+
+# Tạo Layout
+@yield('name') // tạo ra layout cần thay đổi
+
+@section('name')
+	<h1>Phần được đặt vào vị trí layout</h1>
+@endsection
+
+

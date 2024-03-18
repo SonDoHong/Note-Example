@@ -1,0 +1,6 @@
+## Sau khi nhận task
+- checkout về dev
+- pull code mới nhất từ dev về
+- tạo ra 1 branch với tên task mình nhận được
+	+ git checkout -b name
+ VD: feature/breadscumb

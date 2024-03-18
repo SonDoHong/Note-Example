@@ -1,0 +1,17 @@
+### HTTP Request
+* laravel Request:
+	- Phương thức - thuộc tính của Request:
+		+ $request->all()
+		+ $request->path()
+		+ $request->is()
+		+ $request->url()
+		+ $request->fullUrl()
+		+ $request->method()
+		+ $request->isMethod()
+		+ $request->ip()
+		+ $request->server()
+		+ $request->header()
+		+ $request->input()
+		+ $request->name
+
+	- Helper của Request

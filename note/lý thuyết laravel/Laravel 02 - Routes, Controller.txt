@@ -1,0 +1,99 @@
+### thực hành số 02:
+# bật chế độ bảo trì:
+1. tạo 1 file error
++ /resources/views/errors/503.blade.php
+
+2. sử dụng câu lệnh: 
++ php artisan down // On bảo trì
++ php artisan up // Off bảo trì
+
+## Routes
+* Các phương thức khai báo Route:
+(để khai báo Route web, bạn cần khai báo trong file routes/web.php)
+
++ Route::get($path, $callback): Nhận request với phương thức GET.
++ Route::post($path, $callback): Nhận request với phương thức POST.
++ Route::put($path, $callback): Nhận request với phương thức PUT.
++ Route::patch($path, $callback): Nhận request với phương thức PATCH.
++ Route::delete($path, $callback): Nhận request với phương thức DELETE.
++ Route::options($path, $callback): Nhận request với phương thức OPTIONS.
++ Route::match([$methods], $path, $callback): Nhận request với nhiều phương thức được khai báo trong mảng $method.
++ Route::any($path, $callback): Nhận request với tất cả phương thức.
++ Route::prefix('path_prefix')->group($callback): Nhóm các Route với prefix xác định
++ Route::middleware($name)->group($callback): Thiết lập middleware cho route (Áp dụng với group)
++ Route::get('path/{thamso}', $callback)->where('thamso', $pattem): Ràng buộc thamso với biểu thức chính quy
++ Route::get('path', $callback)->name('route_name'): Đặt tên route để thuận tiện việc gọi url sau này
++
+
+phương thức POST làm việc với form
+
+
+
+* truyền tham số cho url
+1. Tham số bắt buộc và không bắt buộc
+- Tùy chọn bắt buộc
+Route::get('url/{id}-{biến}', function($id, $biến) {})
+
+- Tùy chọn không bắt buộc
+Route::get('url/{id?}-{biến>}', function($id=null, $biến=null) {}
+
+2. Ràng buộc thamso với biểu thức chính quy
+- Thêm phương thức where() ở cuối Route
+Route::get('path/{thamso}', $callback)->where('thamso', $pattem)
+
+3. Đặt tên Route
+- Thêm phương thức name() ở cuối Route
+Route::get('path', $callback)->name('route_name')
+
+4. thiết lập middleware cho route
+vd: bắt buộc đăng nhập, không đăng nhập chở về HomePage
+Route::middleware($name)->group($callback): Thiết lập middleware cho route (Áp dụng với group)
+
+- vd thứ tự làm việc với 1 file middleware:
++ câu lệnh tạo 1 tệp trong flie middleware:
+php artisan make:middleware name_file
+
++ code logic với hàm handle() {
+ vd:
+	$homeUrl = route('home');
+
+        return redirect($homeUrl);
+}
+
++ Khai báo file đó ở file App/Http/Kernel.php
+protected $middlewareAliases = [
+	'name' = \namespace\class::class,
+]
+
++ lấy tên biến ở file Kernel.php để
+đặt vào phương thức middlewarw('name')
+
+
+## Controller
+1. làm việc với Controller
++ tạo file với câu lệnh:
+php artisan make:controller NameController
+
++ tạo hàm trong file đó và logic
+
++ logic trong file routes\web.php
+vd: (
+use App\Http\Cpntrollers\class
+
+Route::get('home', [NameController::class, 'name_hàm']
+)
+
+// trường hợp có tham số
+// Controller có tham số
+Route::get('demo-controller/{id}', [DemoController::class, 'coThamSo']);
+
+// logic bên class DemoController::class
+public function coThamSo($id) {
+     return 'New Page Demo Controller có tham số là: '.$id;
+}
+
+
+
+
+
+
