@@ -1,0 +1,21 @@
+# open Terminal and run following commands:
+
+1. Initialize git in that folder (root Directory)
+
+- git init
+
+2. Add Git
+
+- git add .
+
+3. Link your TSf/Git to that Project - {url} replace with your git address
+
+- git remote add origin {url}
+
+4. Commit those Changes:
+
+- git commit -m "initial commit"
+
+5. Push - I pushed code as version1 you can use any name for your branch
+
+- git push origin HEAD:Version1
